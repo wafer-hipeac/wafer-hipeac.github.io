@@ -36,10 +36,15 @@
     </symbol>
   </svg>
 
-  <!-- Glasgow backdrop: George Square and the City Chambers at night, next to Queen Street station -->
+  <!-- Glasgow backdrop: a slow crossfade through Glasgow scenes, fixed behind the page -->
   <div class="backdrop" aria-hidden="true">
-    <img class="backdrop-photo" src="assets/george-square-2560.jpg"
-         srcset="assets/george-square-1280.jpg 1280w, assets/george-square-2560.jpg 2560w" sizes="100vw" alt="">
+    <div class="slides">
+      <img class="slide is-active" src="assets/bg/clyde-night-2560.jpg" srcset="assets/bg/clyde-night-1280.jpg 1280w, assets/bg/clyde-night-2560.jpg 2560w" sizes="100vw" alt="" style="--p:45% 55%;--pm:40% 55%;--b:1" data-name="The Clyde at night">
+      <img class="slide" data-srcset="assets/bg/uni-night-1280.jpg 1280w, assets/bg/uni-night-2560.jpg 2560w" sizes="100vw" alt="" style="--p:50% 62%;--pm:50% 60%;--b:1" data-name="University of Glasgow">
+      <img class="slide" data-srcset="assets/bg/kelvingrove-1280.jpg 1280w, assets/bg/kelvingrove-1920.jpg 1920w" sizes="100vw" alt="" style="--p:58% 55%;--pm:58% 55%;--b:0.72" data-name="Kelvingrove Art Gallery">
+      <img class="slide" data-srcset="assets/bg/cathedral-1280.jpg 1280w, assets/bg/cathedral-1920.jpg 1920w" sizes="100vw" alt="" style="--p:52% 40%;--pm:52% 40%;--b:0.72" data-name="Glasgow Cathedral">
+      <img class="slide" data-srcset="assets/bg/george-square-1280.jpg 1280w, assets/bg/george-square-2560.jpg 2560w" sizes="100vw" alt="" style="--p:50% 38%;--pm:47% 40%;--b:1" data-name="George Square">
+    </div>
     <div class="backdrop-shade"></div>
   </div>
 
@@ -58,7 +63,7 @@
     </nav>
 
     <div class="hero-body wrap">
-      <p class="kicker">HiPEAC 2027 Workshop <span>·</span> <svg class="kicker-rose" aria-hidden="true"><use href="#rose"/></svg>Glasgow</p>
+      <p class="kicker">HiPEAC 2027 Workshop <span>·</span> <span class="nowrap"><svg class="kicker-rose" aria-hidden="true"><use href="#rose"/></svg>Glasgow, UK</span></p>
       <h1><span class="ln">Wafer-Scale and</span> <span class="ln">Post-GPU Computing</span> <span class="ln soft">for AI and HPC</span></h1>
       <p class="subtitle">Architectures, Compilers, and Ecosystems</p>
       <ul class="facts">
@@ -72,6 +77,10 @@
       </div>
     </div>
 
+    <div class="scene wrap">
+      <p class="scene-name"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>The Clyde at night</span></p>
+      <div class="scene-dots" role="group" aria-label="Background scenes"><button type="button" aria-label="Show The Clyde at night" aria-current="true"></button><button type="button" aria-label="Show University of Glasgow"></button><button type="button" aria-label="Show Kelvingrove Art Gallery"></button><button type="button" aria-label="Show Glasgow Cathedral"></button><button type="button" aria-label="Show George Square"></button></div>
+    </div>
     <div class="tartan" aria-hidden="true"></div>
   </header>
 
@@ -204,7 +213,7 @@
         <div class="venue-text">
           <p class="label label-light"><svg><use href="#lattice"/></svg>Venue</p>
           <h2>See you on the Clyde.</h2>
-          <p>Part of the 22nd HiPEAC conference, 18–20 January 2027, at the Scottish Event Campus on the north bank of the River Clyde.</p>
+          <p>Part of the 22nd HiPEAC conference, 18–20 January 2027, at the Scottish Event Campus on the north bank of the River Clyde in Glasgow, UK.</p>
           <dl class="ticket">
             <div><dt>Date</dt><dd>Wednesday 20 January 2027</dd></div>
             <div><dt>Time</dt><dd>10:00–17:00</dd></div>
@@ -274,7 +283,36 @@
       <p><span class="brand-mark" aria-hidden="true"></span> Wafer-Scale and Post-GPU Computing for AI and HPC · HiPEAC 2027</p>
       <p class="motto"><svg class="motto-rose" aria-hidden="true"><use href="#rose"/></svg>Let Glasgow Flourish</p>
     </div>
-    <p class="wrap credit">Background photo: <a href="https://commons.wikimedia.org/wiki/File:City_Chambers_(457005456).jpg" target="_blank" rel="noopener">“City Chambers”</a> (George Square) by Thomas Duesing, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>, via Wikimedia Commons (resized, darkened).</p>
+    <p class="wrap credit">Background photos via Wikimedia Commons (resized and darkened):
+      <a href="https://commons.wikimedia.org/wiki/File:Glasgow_Skyline_at_night.jpg" target="_blank" rel="noopener">The Clyde at night</a> by Barnabas Csomor, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>;
+      <a href="https://commons.wikimedia.org/wiki/File:Uni_of_Glasgow_night.jpg" target="_blank" rel="noopener">University of Glasgow</a> by StaraBlazkova, <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener">CC BY 2.5</a>;
+      <a href="https://commons.wikimedia.org/wiki/File:Kelvingrove_Art_Gallery_and_Museum_-_exterior.jpg" target="_blank" rel="noopener">Kelvingrove Art Gallery</a> by Stinglehammer, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>;
+      <a href="https://commons.wikimedia.org/wiki/File:View_of_Glasgow_Cathedral_from_Glasgow_Necropolis_(51365340704).jpg" target="_blank" rel="noopener">Glasgow Cathedral</a> by Graeme Churchard, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>;
+      <a href="https://commons.wikimedia.org/wiki/File:City_Chambers_(457005456).jpg" target="_blank" rel="noopener">George Square</a> by Thomas Duesing, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>.</p>
   </footer>
+  <script>
+  (function () {
+    var slides = [].slice.call(document.querySelectorAll('.backdrop .slide'));
+    var dots = [].slice.call(document.querySelectorAll('.scene-dots button'));
+    var label = document.querySelector('.scene-name span');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var i = 0, timer = null, DELAY = 7000;
+    function load(img) { if (img.dataset.srcset) { img.srcset = img.dataset.srcset; img.removeAttribute('data-srcset'); } }
+    function show(n) {
+      n = (n + slides.length) % slides.length;
+      load(slides[n]);
+      slides[i].classList.remove('is-active'); dots[i].removeAttribute('aria-current');
+      i = n;
+      slides[i].classList.add('is-active'); dots[i].setAttribute('aria-current', 'true');
+      label.textContent = slides[i].dataset.name;
+      load(slides[(i + 1) % slides.length]);
+    }
+    function start() { if (!reduce && !timer) timer = setInterval(function () { show(i + 1); }, DELAY); }
+    function stop() { clearInterval(timer); timer = null; }
+    dots.forEach(function (d, n) { d.addEventListener('click', function () { stop(); show(n); start(); }); });
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    window.addEventListener('load', function () { load(slides[1]); start(); });
+  })();
+  </script>
 </body>
 </html>
