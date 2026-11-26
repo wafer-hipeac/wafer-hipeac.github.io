@@ -57,10 +57,17 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* one Glasgow photo per section */
 .pic { position: relative; isolation: isolate; overflow: hidden; }
 .pic::before {
-  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  /* the photo is at most one screen tall so it is never blown up on long sections;
+     it sits at the top of the section and fades into the night-blue below */
+  content: ""; position: absolute; inset: 0 0 auto 0; z-index: -2; pointer-events: none;
+  height: min(100%, max(100vh, 560px));
   background-image: var(--bg); background-size: cover; background-position: var(--pos, center);
   filter: brightness(var(--b, 1)) saturate(1.05);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
 }
+.hero.pic::before { height: 100%; -webkit-mask-image: none; mask-image: none; }
+img { max-width: 100%; }
 .pic::after {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: linear-gradient(180deg, rgba(8, 11, 28, .94) 0%, rgba(8, 11, 28, .74) 16%, rgba(8, 11, 28, .74) 84%, rgba(8, 11, 28, .94) 100%);
