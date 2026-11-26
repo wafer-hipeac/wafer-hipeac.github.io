@@ -25,6 +25,15 @@
       <rect x="0" y="5" width="4" height="4"/><rect x="5" y="5" width="4" height="4" class="hot"/><rect x="10" y="5" width="4" height="4"/>
       <rect x="0" y="10" width="4" height="4"/><rect x="5" y="10" width="4" height="4"/><rect x="10" y="10" width="4" height="4"/>
     </symbol>
+    <!-- Mackintosh rose: nested, offset rings -->
+    <symbol id="rose" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="47" style="fill:var(--rose-fill,#d6708f)"/>
+      <g style="fill:none;stroke:var(--rose-line,#fbf6ee);stroke-width:3.4">
+        <circle cx="47" cy="52.5" r="37"/><circle cx="53" cy="47.5" r="27.5"/>
+        <circle cx="48" cy="51.5" r="18.5"/><circle cx="52" cy="48.5" r="10.5"/>
+      </g>
+      <circle cx="50" cy="50" r="4" style="fill:var(--rose-line,#fbf6ee)"/>
+    </symbol>
   </svg>
 
   <header class="hero" id="top">
@@ -52,16 +61,16 @@
     </nav>
 
     <div class="hero-body wrap">
-      <p class="kicker">HiPEAC 2027 Workshop <span>·</span> Glasgow</p>
+      <p class="kicker">HiPEAC 2027 Workshop <span>·</span> <svg class="kicker-rose" aria-hidden="true"><use href="#rose"/></svg>Glasgow</p>
       <h1><span class="ln">Wafer-Scale and</span> <span class="ln">Post-GPU Computing</span> <span class="ln soft">for AI and HPC</span></h1>
       <p class="subtitle">Architectures, Compilers, and Ecosystems</p>
       <ul class="facts">
         <li><b>Wed 20 Jan 2027</b></li>
-        <li>Full day</li>
+        <li>10:00–17:00</li>
         <li>SEC Glasgow · Room Alsh&nbsp;1</li>
       </ul>
       <div class="cta">
-        <a class="btn btn-primary" href="#program">See the speakers</a>
+        <a class="btn btn-primary" href="#about">About the workshop <span aria-hidden="true">↓</span></a>
         <a class="btn btn-ghost" href="https://www.hipeac.net/2027/glasgow/" target="_blank" rel="noopener">HiPEAC 2027 <span aria-hidden="true">↗</span></a>
       </div>
     </div>
@@ -157,6 +166,20 @@
           <p>A closing discussion on the open problems that matter next.</p>
         </div>
       </div>
+
+      <div class="frieze" aria-hidden="true">
+        <svg width="100%" height="112" focusable="false">
+          <defs>
+            <pattern id="mackFrieze" width="150" height="112" patternUnits="userSpaceOnUse">
+              <path class="fz-line" d="M0 6H150M0 10H150M0 102H150M0 106H150M38 46V102M42 46V102M115 10V43M115 68V102"/>
+              <path class="fz-leaf" d="M38 66C27 66 20 59 17 50C28 50 35 56 38 66ZM42 66C53 66 60 59 63 50C52 50 45 56 42 66ZM38 88C30 88 25 83 23 77C31 77 36 81 38 88ZM42 88C50 88 55 83 57 77C49 77 44 81 42 88Z"/>
+              <use href="#rose" x="21" y="12" width="38" height="38"/>
+              <g class="fz-sq"><rect x="102.5" y="43" width="7" height="7"/><rect x="111.5" y="43" width="7" height="7"/><rect x="120.5" y="43" width="7" height="7"/><rect x="102.5" y="52" width="7" height="7"/><rect x="111.5" y="52" width="7" height="7" class="hot"/><rect x="120.5" y="52" width="7" height="7"/><rect x="102.5" y="61" width="7" height="7"/><rect x="111.5" y="61" width="7" height="7"/><rect x="120.5" y="61" width="7" height="7"/></g>
+            </pattern>
+          </defs>
+          <rect width="100%" height="112" fill="url(#mackFrieze)"/>
+        </svg>
+      </div>
     </section>
 
     <section class="section section-alt" id="program">
@@ -238,26 +261,78 @@
 
     <section class="venue" id="venue">
       <div class="wrap venue-inner">
-        <div>
+        <div class="venue-text">
           <p class="label label-light"><svg><use href="#lattice"/></svg>Venue</p>
           <h2>See you on the Clyde.</h2>
-          <p>Part of the 22nd HiPEAC conference, 18–20 January 2027, at the Scottish Event Campus on the banks of the River Clyde in Glasgow.</p>
+          <p>Part of the 22nd HiPEAC conference, 18–20 January 2027, at the Scottish Event Campus on the north bank of the River Clyde.</p>
+          <dl class="ticket">
+            <div><dt>Date</dt><dd>Wednesday 20 January 2027</dd></div>
+            <div><dt>Time</dt><dd>10:00–17:00</dd></div>
+            <div><dt>Room</dt><dd>Alsh 1, SEC Glasgow</dd></div>
+            <div><dt>Rail</dt><dd>Exhibition Centre station, next to the SEC</dd></div>
+          </dl>
+          <p class="brolly"><span aria-hidden="true">☂</span> It’s Glasgow in January: bring a brolly.</p>
           <a class="btn btn-primary" href="https://www.hipeac.net/2027/glasgow/" target="_blank" rel="noopener">Register via HiPEAC 2027 <span aria-hidden="true">↗</span></a>
         </div>
-        <dl class="ticket">
-          <div><dt>Date</dt><dd>Wednesday 20 January 2027</dd></div>
-          <div><dt>Format</dt><dd>Full day</dd></div>
-          <div><dt>Room</dt><dd>Alsh 1, SEC Glasgow</dd></div>
-          <p class="coords" aria-hidden="true">55.8607° N · 4.2876° W</p>
-        </dl>
+        <figure class="clyde">
+          <svg viewBox="0 0 560 320" role="img" aria-labelledby="mapTitle">
+            <title id="mapTitle">Schematic map: the SEC sits on the north bank of the River Clyde, west of Glasgow city centre, next to Exhibition Centre station.</title>
+            <defs>
+              <pattern id="cityGrid" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)">
+                <path d="M18 0H0V18" fill="none" stroke="#fff" stroke-opacity=".16"/>
+              </pattern>
+              <radialGradient id="gridFade"><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+              <mask id="gridMask"><ellipse cx="470" cy="120" rx="125" ry="100" fill="url(#gridFade)"/></mask>
+              <linearGradient id="clydeG" x1="0" x2="1"><stop offset="0" stop-color="#1d6b74"/><stop offset="1" stop-color="#2b5c9c"/></linearGradient>
+            </defs>
+            <rect x="330" y="10" width="240" height="220" fill="url(#cityGrid)" mask="url(#gridMask)"/>
+            <path class="map-park" d="M120 96c18-22 62-26 84-8 16 14 10 40-10 50-24 12-62 10-78-6-10-10-8-24 4-36z"/>
+            <path class="map-river map-kelvin" d="M128 -4C140 30 118 60 132 92S150 140 120 170S96 214 92 232"/>
+            <path class="map-river map-clyde" d="M-10 262C40 250 70 236 100 236S170 252 230 250S330 232 390 244S500 276 570 268"/>
+            <path class="map-rail" d="M-5 138C80 150 170 166 262 168S400 176 468 184"/>
+
+            <!-- University of Glasgow -->
+            <path class="map-ico" d="M74 70V50h3v-8l2.5-12 2.5 12v8h3v20z"/>
+            <text class="map-lbl" x="94" y="52">University</text>
+            <text class="map-lbl" x="94" y="66">of Glasgow</text>
+            <text class="map-lbl park-lbl" x="140" y="118">Kelvingrove Park</text>
+            <!-- Exhibition Centre station -->
+            <rect class="map-stn" x="255" y="161" width="14" height="14" rx="3"/>
+            <path class="map-stn-mark" d="M259 166h6M259 170h6"/>
+            <text class="map-lbl" x="276" y="153">Exhibition Centre station</text>
+            <!-- Finnieston Crane -->
+            <path class="map-ico-line" d="M304 232l3-26M312 232l-3-26M296 206h26M309 206v12"/>
+            <text class="map-lbl dim" x="320" y="222">Finnieston Crane</text>
+            <!-- Science Centre -->
+            <path class="map-ico" d="M246 300v-26l2-14 2 14v26z"/>
+            <text class="map-lbl dim" x="238" y="297" text-anchor="end">Science Centre</text>
+            <!-- Glasgow Central -->
+            <rect class="map-stn" x="461" y="177" width="14" height="14" rx="3"/>
+            <path class="map-stn-mark" d="M465 182h6M465 186h6"/>
+            <text class="map-lbl" x="482" y="188">Central</text>
+            <text class="map-lbl area" x="414" y="96">CITY CENTRE</text>
+            <text class="map-lbl water" x="350" y="292" transform="rotate(6 350 292)">River Clyde</text>
+            <text class="map-lbl water small" x="94" y="182" text-anchor="end">Kelvin</text>
+            <!-- North arrow -->
+            <path class="map-ico" d="M532 14l7 18-7-5-7 5z"/>
+            <text class="map-lbl dim" x="527.5" y="48">N</text>
+            <!-- SEC pin -->
+            <circle class="pulse" cx="232" cy="222" r="20"/>
+            <circle class="pin-dot" cx="232" cy="222" r="8"/>
+            <text class="map-lbl big" x="214" y="200" text-anchor="end">SEC</text>
+            <text class="map-lbl" x="214" y="215" text-anchor="end">Room Alsh 1</text>
+          </svg>
+          <figcaption>55.8607° N · 4.2876° W · not to scale</figcaption>
+        </figure>
       </div>
     </section>
   </main>
 
   <footer class="footer">
+    <div class="tartan" aria-hidden="true"></div>
     <div class="wrap footer-inner">
-      <p><span class="brand-mark" aria-hidden="true"></span> Wafer-Scale and Post-GPU Computing for AI and HPC</p>
-      <p>A HiPEAC 2027 workshop · Glasgow</p>
+      <p><span class="brand-mark" aria-hidden="true"></span> Wafer-Scale and Post-GPU Computing for AI and HPC · HiPEAC 2027</p>
+      <p class="motto"><svg class="motto-rose" aria-hidden="true"><use href="#rose"/></svg>Let Glasgow Flourish</p>
     </div>
   </footer>
 </body>

@@ -12,6 +12,10 @@
   --clyde: #1d6b74;
   --gold: #d9a441;
   --rose: #c2456b;           /* Mackintosh rose */
+  --rose-fill: #d6708f;
+  --rose-line: var(--paper);
+  --leaf: #6b8f5e;            /* Mackintosh stencil green */
+  --mack: #5b4a7a;            /* Mackintosh purple */
   --star: #eef0fa;
   --iri: conic-gradient(from 210deg, #9fb4e8, #c9a8ea, #f2bfa8, #f3e1a0, #a8e4d2, #8fb8f2, #9fb4e8);
   --radius: 14px;
@@ -32,6 +36,8 @@
     --sandstone: #e4795f;
     --clyde: #5cc2cc;
     --rose: #ec7c9d;
+    --leaf: #86ad78;
+    --mack: #a58fc6;
     color-scheme: dark;
   }
 }
@@ -134,6 +140,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   color: var(--gold);
 }
 .kicker span { color: rgba(238,240,250,.4); margin: 0 .3em; }
+.kicker-rose { width: 1.05em; height: 1.05em; vertical-align: -0.18em; margin-right: .45em; --rose-line: #0c1130; }
 .hero h1 {
   margin-top: 18px;
   font-size: clamp(2.15rem, 4.9vw, 4.3rem);
@@ -321,9 +328,10 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
   -webkit-mask: radial-gradient(60% 80% at 75% 50%, #000, transparent);
           mask: radial-gradient(60% 80% at 75% 50%, #000, transparent);
 }
-.venue-inner { position: relative; display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.venue-inner { position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
 .venue h2 { color: #fff; }
-.venue-inner > div > p { margin: 18px 0 28px; color: rgba(238,240,250,.78); max-width: 34em; }
+.venue-text > p:not(.label) { margin: 18px 0 26px; color: rgba(238,240,250,.78); max-width: 34em; }
+.venue-text > p.brolly { margin: 16px 0 26px; font: italic 400 1.02rem/1.4 var(--serif); color: rgba(238,240,250,.7); }
 .ticket {
   margin: 0; padding: 8px 26px 22px; border-radius: var(--radius);
   background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
@@ -332,12 +340,53 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 .ticket div { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px dashed rgba(255,255,255,.16); }
 .ticket dt { font: 500 12px/1.6 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 .ticket dd { margin: 0; font: 500 1.12rem/1.4 var(--serif); }
-.coords { margin-top: 16px; font: 400 12px/1 var(--mono); letter-spacing: .08em; color: rgba(238,240,250,.45); }
+.clyde {
+  margin: 0; padding: 18px 18px 14px; border-radius: var(--radius);
+  background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.12);
+}
+.clyde svg { display: block; width: 100%; height: auto; }
+.clyde figcaption { margin-top: 8px; text-align: right; font: 400 11.5px/1 var(--mono); letter-spacing: .08em; color: rgba(238,240,250,.42); }
+.map-park { fill: rgba(107,143,94,.30); }
+.map-river { fill: none; stroke-linecap: round; }
+.map-clyde { stroke: url(#clydeG); stroke-width: 26; }
+.map-kelvin { stroke: #1d6b74; stroke-width: 7; }
+.map-rail { fill: none; stroke: rgba(238,240,250,.4); stroke-width: 2; stroke-dasharray: 6 5; }
+.map-ico { fill: #dfe3f6; }
+.map-ico-line { fill: none; stroke: #dfe3f6; stroke-width: 2.2; stroke-linecap: round; }
+.map-stn { fill: #0a0e22; stroke: #dfe3f6; stroke-width: 1.6; }
+.map-stn-mark { stroke: #dfe3f6; stroke-width: 1.6; }
+.map-lbl { font: 500 12px var(--mono); fill: rgba(238,240,250,.78); letter-spacing: .01em; }
+.map-lbl.dim { fill: rgba(238,240,250,.5); font-weight: 400; }
+.map-lbl.big { font: 600 17px var(--serif); fill: #fff; letter-spacing: 0; }
+.map-lbl.area { font-size: 11px; letter-spacing: .32em; fill: rgba(238,240,250,.38); }
+.map-lbl.park-lbl { fill: rgba(170,210,150,.75); font-size: 11px; }
+.map-lbl.water { font: italic 400 16px var(--serif); fill: rgba(170,215,230,.8); letter-spacing: 0; }
+.map-lbl.water.small { font-size: 12px; }
+.pin-dot { fill: var(--gold); stroke: #0a0e22; stroke-width: 3; }
+.pulse { fill: rgba(217,164,65,.28); transform-box: fill-box; transform-origin: center; animation: pulse 2.6s ease-out infinite; }
+@keyframes pulse { from { transform: scale(.45); opacity: 1; } to { transform: scale(1.5); opacity: 0; } }
 
 /* footer */
-.footer { padding: 28px 0; background: #070a1a; color: rgba(238,240,250,.6); font-size: .9rem; }
+.footer { padding: 0 0 28px; background: #070a1a; color: rgba(238,240,250,.6); font-size: .9rem; }
+.footer .tartan { position: static; display: block; height: 10px; margin-bottom: 26px; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
 .footer p { display: inline-flex; align-items: center; gap: 10px; }
+.motto { font: italic 400 1.05rem/1 var(--serif); color: rgba(238,240,250,.85); letter-spacing: .01em; }
+.motto-rose { width: 22px; height: 22px; --rose-line: #070a1a; }
+
+/* Mackintosh stencil frieze */
+.frieze {
+  margin-top: clamp(64px, 9vw, 104px);
+  color: var(--mack);
+  -webkit-mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.frieze svg { display: block; }
+.fz-line { fill: none; stroke: var(--mack); stroke-width: 1.3; opacity: .5; }
+.fz-leaf { fill: var(--leaf); opacity: .85; }
+.fz-sq rect { fill: var(--mack); opacity: .7; }
+.fz-sq .hot { fill: var(--rose-fill); opacity: 1; }
+#about { padding-bottom: 0; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 960px) {
@@ -353,10 +402,14 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
   .format, .speakers { grid-template-columns: 1fr; }
   .wafer { width: 260px; right: -90px; top: 56px; opacity: .4; }
   .tbd { flex-direction: column; align-items: flex-start; }
+  .map-lbl { font-size: 15px; }
+  .map-lbl.area, .map-lbl.park-lbl { font-size: 13px; }
+  .map-lbl.big { font-size: 20px; }
+  .clyde { padding: 12px 10px 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .wafer, .stars .tw { animation: none; }
+  .wafer, .stars .tw, .pulse { animation: none; }
   .btn, .speaker { transition: none; }
 }
