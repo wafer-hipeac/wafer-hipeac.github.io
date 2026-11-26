@@ -263,11 +263,8 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 .photo {
   object-fit: cover; display: block;
   outline: 2px solid transparent; outline-offset: 3px;
-  filter: grayscale(1) contrast(1.04);
-  transition: filter .35s;
   box-shadow: 0 0 0 3px var(--card), 0 0 0 5px #c9a8ea;
 }
-.speaker:hover .photo { filter: none; }
 .chip {
   position: relative;
   display: grid; place-items: center;
