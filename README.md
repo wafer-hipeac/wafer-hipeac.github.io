@@ -18,4 +18,5 @@ Then go to Settings → Pages → Build and deployment and set **Source: Deploy 
 ## Editing
 
 - Speakers, organizers and venue details are plain HTML in `index.html`. Search for `speaker`, `org-role` or `ticket`.
+- Speaker headshots live in `assets/speakers/` (square JPEG, about 320×320). To add one, drop the file there and replace the speaker's `<span class="chip">` with an `<img class="photo">` like the others.
 - When the program is announced, replace the `.tbd` block in the Program section.
