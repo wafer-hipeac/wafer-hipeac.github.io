@@ -186,13 +186,6 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 .about .lead { margin-top: 22px; font-size: 1.2rem; line-height: 1.55; }
 .about p + p { margin-top: 14px; color: var(--ink-2); }
 .about strong { color: var(--ink); font-weight: 600; }
-.topics li {
-  display: grid; grid-template-columns: 44px 1fr; align-items: baseline;
-  padding: 16px 0; border-top: 1px solid var(--line);
-  font-family: var(--serif); font-weight: 700; font-size: 1.15rem; line-height: 1.35;
-}
-.topics li:last-child { border-bottom: 1px solid var(--line); }
-.topics span { font: 800 12.5px/1 var(--mono); color: var(--clyde); letter-spacing: .06em; }
 
 .format { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: clamp(48px, 7vw, 80px); }
 .fmt {
@@ -366,3 +359,27 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
   }
 }
 .hero .kicker, .hero h1, .hero .subtitle { text-shadow: 0 2px 18px rgba(0, 0, 0, .65), 0 0 2px rgba(0, 0, 0, .4); }
+
+/* research framing */
+.hero .tagline { margin-top: 14px; max-width: 34em; font-size: 1.05rem; line-height: 1.55; color: rgba(238,240,250,.82); text-shadow: 0 2px 14px rgba(0,0,0,.6); }
+.mini { margin: 0 0 16px; font: 800 13px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--clyde); }
+.audience { align-self: end; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags li { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(14, 18, 40, .65); font-weight: 700; font-size: .92rem; }
+.questions-wrap { margin-top: clamp(48px, 7vw, 80px); }
+.questions { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.questions li { padding: 22px 22px 24px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); }
+.q-head { display: flex; align-items: baseline; gap: 10px; }
+.q-n { font: 900 1.5rem/1 var(--serif); color: var(--sandstone); }
+.q-area { font: 800 11.5px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--clyde); }
+.questions p { margin-top: 12px; font-size: 1.02rem; line-height: 1.5; font-weight: 700; color: var(--ink); }
+.format-title { margin-top: clamp(40px, 6vw, 64px); }
+.format { margin-top: 0; }
+.section-intro { margin-top: 12px; max-width: 40em; color: var(--ink-2); font-size: 1.05rem; }
+.speaker .focus {
+  display: inline-block; margin-top: 8px; padding: 4px 10px; border-radius: 999px;
+  font: 800 10.5px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(217, 164, 65, .45);
+}
+@media (max-width: 960px) { .questions { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .questions { grid-template-columns: 1fr; } }
