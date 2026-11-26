@@ -12,8 +12,8 @@ python3 -m http.server 8000
 
 ## Deploy (GitHub Pages)
 
-Go to Settings → Pages → Build and deployment and set **Source: Deploy from a branch**. Pick the branch (for example `main`) and the folder **/ (root)**, then save.
-The site will be live at <https://wafer-hipeac.github.io/website/>.
+This repository must be named `wafer-hipeac.github.io` so the site is served at the root address <https://wafer-hipeac.github.io/>.
+Then go to Settings → Pages → Build and deployment and set **Source: Deploy from a branch**. Pick the branch (for example `main`) and the folder **/ (root)**, then save.
 
 ## Editing
 
