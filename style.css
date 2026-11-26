@@ -366,3 +366,15 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 .format-title { margin: clamp(40px, 6vw, 64px) auto 16px; }
 .format { margin-top: 0; }
 .section-intro { margin-top: 12px; max-width: 40em; color: var(--ink-2); font-size: 1.05rem; }
+
+/* wafer-scale case study callout */
+.hero .tagline strong { color: #fff; font-weight: 800; }
+.about .case {
+  margin-top: 24px; padding: 18px 22px 20px;
+  border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0;
+  background: rgba(14, 18, 40, .78);
+}
+.about .case p { margin: 0; color: var(--ink); line-height: 1.6; }
+.about .case .case-label { margin-bottom: 8px; font: 800 12px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.about .case strong { color: var(--gold); font-weight: 800; }
+.about .after-case { margin-top: 20px; color: var(--ink-2); }
