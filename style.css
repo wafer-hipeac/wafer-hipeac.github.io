@@ -267,7 +267,7 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 .venue-inner { position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
 .venue h2 { color: #fff; }
 .venue-text > p:not(.label) { margin: 18px 0 26px; color: rgba(238,240,250,.78); max-width: 34em; }
-.venue-text > p.brolly { margin: 16px 0 26px; font: italic 500 1.02rem/1.4 var(--serif); color: rgba(238,240,250,.7); }
+.venue-text > p.brolly { margin: 16px 0 0; font: italic 500 1.02rem/1.4 var(--serif); color: rgba(238,240,250,.7); }
 .ticket {
   margin: 0; padding: 8px 26px 22px; border-radius: var(--radius);
   background: rgba(10, 14, 34, .78); border: 1px solid rgba(255,255,255,.14);
