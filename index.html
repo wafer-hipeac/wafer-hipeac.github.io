@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261126b">
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -36,19 +36,7 @@
     </symbol>
   </svg>
 
-  <!-- Glasgow backdrop: a slow crossfade through Glasgow scenes, fixed behind the page -->
-  <div class="backdrop" aria-hidden="true">
-    <div class="slides">
-      <img class="slide is-active" src="assets/bg/clyde-night-2560.jpg" srcset="assets/bg/clyde-night-1280.jpg 1280w, assets/bg/clyde-night-2560.jpg 2560w" sizes="100vw" alt="" style="--p:45% 55%;--pm:40% 55%;--b:1" data-name="The Clyde at night">
-      <img class="slide" data-srcset="assets/bg/uni-night-1280.jpg 1280w, assets/bg/uni-night-2560.jpg 2560w" sizes="100vw" alt="" style="--p:50% 62%;--pm:50% 60%;--b:1" data-name="University of Glasgow">
-      <img class="slide" data-srcset="assets/bg/kelvingrove-1280.jpg 1280w, assets/bg/kelvingrove-1920.jpg 1920w" sizes="100vw" alt="" style="--p:58% 55%;--pm:58% 55%;--b:0.72" data-name="Kelvingrove Art Gallery">
-      <img class="slide" data-srcset="assets/bg/cathedral-1280.jpg 1280w, assets/bg/cathedral-1920.jpg 1920w" sizes="100vw" alt="" style="--p:52% 40%;--pm:52% 40%;--b:0.72" data-name="Glasgow Cathedral">
-      <img class="slide" data-srcset="assets/bg/george-square-1280.jpg 1280w, assets/bg/george-square-2560.jpg 2560w" sizes="100vw" alt="" style="--p:50% 38%;--pm:47% 40%;--b:1" data-name="George Square">
-    </div>
-    <div class="backdrop-shade"></div>
-  </div>
-
-  <header class="hero" id="top">
+  <header class="hero pic" id="top" style="--bg:url('assets/bg/clyde-night-2560.jpg');--bg-s:url('assets/bg/clyde-night-1280.jpg');--pos:45% 55%;--b:1">
     <nav class="nav wrap" aria-label="Main">
       <a class="brand" href="#top">
         <span class="brand-mark" aria-hidden="true"></span>
@@ -77,15 +65,11 @@
       </div>
     </div>
 
-    <div class="scene wrap">
-      <p class="scene-name"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>The Clyde at night</span></p>
-      <div class="scene-dots" role="group" aria-label="Background scenes"><button type="button" aria-label="Show The Clyde at night" aria-current="true"></button><button type="button" aria-label="Show University of Glasgow"></button><button type="button" aria-label="Show Kelvingrove Art Gallery"></button><button type="button" aria-label="Show Glasgow Cathedral"></button><button type="button" aria-label="Show George Square"></button></div>
-    </div>
     <div class="tartan" aria-hidden="true"></div>
   </header>
 
   <main>
-    <section class="section" id="about">
+    <section class="section pic" id="about" style="--bg:url('assets/bg/uni-night-2560.jpg');--bg-s:url('assets/bg/uni-night-1280.jpg');--pos:50% 62%;--b:1">
       <div class="wrap about">
         <div>
           <p class="label"><svg><use href="#lattice"/></svg>About</p>
@@ -131,7 +115,7 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="program">
+    <section class="section pic" id="program" style="--bg:url('assets/bg/kelvingrove-1920.jpg');--bg-s:url('assets/bg/kelvingrove-1280.jpg');--pos:58% 50%;--b:0.8">
       <div class="wrap">
         <p class="label"><svg><use href="#lattice"/></svg>Program</p>
         <h2>Invited speakers</h2>
@@ -186,7 +170,7 @@
       </div>
     </section>
 
-    <section class="section" id="organizers">
+    <section class="section pic" id="organizers" style="--bg:url('assets/bg/george-square-2560.jpg');--bg-s:url('assets/bg/george-square-1280.jpg');--pos:50% 42%;--b:1">
       <div class="wrap">
         <p class="label"><svg><use href="#lattice"/></svg>Organizers</p>
         <h2>Organizing committee</h2>
@@ -208,7 +192,7 @@
       </div>
     </section>
 
-    <section class="venue" id="venue">
+    <section class="venue pic" id="venue" style="--bg:url('assets/bg/sec-2560.jpg');--bg-s:url('assets/bg/sec-1280.jpg');--pos:62% 62%;--b:1">
       <div class="wrap venue-inner">
         <div class="venue-text">
           <p class="label label-light"><svg><use href="#lattice"/></svg>Venue</p>
@@ -283,36 +267,12 @@
       <p><span class="brand-mark" aria-hidden="true"></span> Wafer-Scale and Post-GPU Computing for AI and HPC · HiPEAC 2027</p>
       <p class="motto"><svg class="motto-rose" aria-hidden="true"><use href="#rose"/></svg>Let Glasgow Flourish</p>
     </div>
-    <p class="wrap credit">Background photos via Wikimedia Commons (resized and darkened):
+    <p class="wrap credit">Photos via Wikimedia Commons (resized and darkened):
       <a href="https://commons.wikimedia.org/wiki/File:Glasgow_Skyline_at_night.jpg" target="_blank" rel="noopener">The Clyde at night</a> by Barnabas Csomor, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>;
       <a href="https://commons.wikimedia.org/wiki/File:Uni_of_Glasgow_night.jpg" target="_blank" rel="noopener">University of Glasgow</a> by StaraBlazkova, <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener">CC BY 2.5</a>;
       <a href="https://commons.wikimedia.org/wiki/File:Kelvingrove_Art_Gallery_and_Museum_-_exterior.jpg" target="_blank" rel="noopener">Kelvingrove Art Gallery</a> by Stinglehammer, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>;
-      <a href="https://commons.wikimedia.org/wiki/File:View_of_Glasgow_Cathedral_from_Glasgow_Necropolis_(51365340704).jpg" target="_blank" rel="noopener">Glasgow Cathedral</a> by Graeme Churchard, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>;
-      <a href="https://commons.wikimedia.org/wiki/File:City_Chambers_(457005456).jpg" target="_blank" rel="noopener">George Square</a> by Thomas Duesing, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>.</p>
+      <a href="https://commons.wikimedia.org/wiki/File:City_Chambers_(457005456).jpg" target="_blank" rel="noopener">George Square</a> by Thomas Duesing, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>;
+      <a href="https://commons.wikimedia.org/wiki/File:Clyde_Auditorium_%26_The_Hydro_(11122696465).jpg" target="_blank" rel="noopener">SEC and the Hydro</a> by Daniel from Glasgow, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>.</p>
   </footer>
-  <script>
-  (function () {
-    var slides = [].slice.call(document.querySelectorAll('.backdrop .slide'));
-    var dots = [].slice.call(document.querySelectorAll('.scene-dots button'));
-    var label = document.querySelector('.scene-name span');
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var i = 0, timer = null, DELAY = 7000;
-    function load(img) { if (img.dataset.srcset) { img.srcset = img.dataset.srcset; img.removeAttribute('data-srcset'); } }
-    function show(n) {
-      n = (n + slides.length) % slides.length;
-      load(slides[n]);
-      slides[i].classList.remove('is-active'); dots[i].removeAttribute('aria-current');
-      i = n;
-      slides[i].classList.add('is-active'); dots[i].setAttribute('aria-current', 'true');
-      label.textContent = slides[i].dataset.name;
-      load(slides[(i + 1) % slides.length]);
-    }
-    function start() { if (!reduce && !timer) timer = setInterval(function () { show(i + 1); }, DELAY); }
-    function stop() { clearInterval(timer); timer = null; }
-    dots.forEach(function (d, n) { d.addEventListener('click', function () { stop(); show(n); start(); }); });
-    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-    window.addEventListener('load', function () { load(slides[1]); start(); });
-  })();
-  </script>
 </body>
 </html>

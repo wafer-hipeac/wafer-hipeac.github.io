@@ -28,7 +28,7 @@
 
 /* ---------- base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   margin: 0;
   background: #0a0e22;
@@ -54,27 +54,28 @@ ul { list-style: none; margin: 0; padding: 0; }
   overflow: hidden;
   isolation: isolate;
 }
-.backdrop {
-  position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
-  background: #0a0e22;
-}
-.slides { position: absolute; inset: 0; }
-.slide {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: var(--p, 50% 50%);
+/* one Glasgow photo per section */
+.pic { position: relative; isolation: isolate; overflow: hidden; }
+.pic::before {
+  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background-image: var(--bg); background-size: cover; background-position: var(--pos, center);
   filter: brightness(var(--b, 1)) saturate(1.05);
-  opacity: 0; transform: scale(1.06);
-  transition: opacity 1.8s ease, transform 9s ease-out;
 }
-.slide.is-active { opacity: 1; transform: scale(1); }
-.backdrop-shade {
-  position: absolute; inset: 0;
+.pic::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(8, 11, 28, .94) 0%, rgba(8, 11, 28, .74) 16%, rgba(8, 11, 28, .74) 84%, rgba(8, 11, 28, .94) 100%);
+}
+.hero.pic::after {
   background:
-    linear-gradient(90deg, rgba(6, 9, 26, .9) 0%, rgba(6, 9, 26, .78) 42%, rgba(6, 9, 26, .34) 70%, rgba(6, 9, 26, .14) 100%),
-    linear-gradient(180deg, rgba(6, 9, 26, .55) 0%, rgba(6, 9, 26, 0) 22%, rgba(6, 9, 26, 0) 70%, rgba(6, 9, 26, .5) 100%),
-    linear-gradient(0deg, rgba(40, 30, 80, .18), rgba(40, 30, 80, .18));
+    linear-gradient(90deg, rgba(6, 9, 26, .9) 0%, rgba(6, 9, 26, .76) 42%, rgba(6, 9, 26, .32) 70%, rgba(6, 9, 26, .14) 100%),
+    linear-gradient(180deg, rgba(6, 9, 26, .55) 0%, rgba(6, 9, 26, 0) 22%, rgba(6, 9, 26, 0) 70%, rgba(6, 9, 26, .6) 100%);
 }
-
+.venue.pic::after {
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgba(29,107,116,.35), transparent 60%),
+    radial-gradient(60% 80% at 0% 100%, rgba(180,67,47,.3), transparent 60%),
+    linear-gradient(180deg, rgba(8, 11, 28, .94) 0%, rgba(8, 11, 28, .7) 18%, rgba(8, 11, 28, .7) 82%, rgba(8, 11, 28, .94) 100%);
+}
 
 /* nav */
 .nav {
@@ -161,12 +162,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 /* ---------- sections ---------- */
-.section {
-  padding: clamp(72px, 10vw, 120px) 0;
-  background: rgba(9, 12, 30, .48);
-  -webkit-backdrop-filter: blur(2.5px); backdrop-filter: blur(2.5px);
-}
-.section-alt { background: rgba(14, 18, 44, .56); }
+.section { padding: clamp(72px, 10vw, 120px) 0; }
 .label {
   display: inline-flex; align-items: center; gap: 10px;
   font: 800 13px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
@@ -265,22 +261,8 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 
 /* venue */
 .venue {
-  position: relative; overflow: hidden;
   padding: clamp(72px, 10vw, 120px) 0;
   color: var(--star);
-  background:
-    radial-gradient(70% 90% at 100% 0%, rgba(29,107,116,.45), transparent 60%),
-    radial-gradient(60% 80% at 0% 100%, rgba(180,67,47,.35), transparent 60%),
-    rgba(10, 14, 34, .58);
-}
-.venue::before {
-  /* faint die grid */
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px) 0 0 / 38px 22px,
-    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px) 0 0 / 38px 22px;
-  -webkit-mask: radial-gradient(60% 80% at 75% 50%, #000, transparent);
-          mask: radial-gradient(60% 80% at 75% 50%, #000, transparent);
 }
 .venue-inner { position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
 .venue h2 { color: #fff; }
@@ -364,7 +346,6 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .pulse { animation: none; }
-  .slide { transition: opacity .6s ease; transform: none; }
   .btn, .speaker { transition: none; }
 }
 
@@ -372,32 +353,9 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 .credit a { color: rgba(238,240,250,.65); }
 .nowrap { white-space: nowrap; }
 @media (max-width: 720px) {
-  .slide { object-position: var(--pm, var(--p, 50% 50%)); }
-  .backdrop-shade {
-    background: linear-gradient(180deg, rgba(6, 9, 26, .78) 0%, rgba(6, 9, 26, .5) 48%, rgba(6, 9, 26, .35) 70%, rgba(6, 9, 26, .7) 100%);
+  .pic::before { background-image: var(--bg-s, var(--bg)); }
+  .hero.pic::after {
+    background: linear-gradient(180deg, rgba(6, 9, 26, .8) 0%, rgba(6, 9, 26, .55) 48%, rgba(6, 9, 26, .45) 70%, rgba(6, 9, 26, .75) 100%);
   }
 }
 .hero .kicker, .hero h1, .hero .subtitle { text-shadow: 0 2px 18px rgba(0, 0, 0, .65), 0 0 2px rgba(0, 0, 0, .4); }
-
-/* scene caption + dots (background slideshow) */
-.hero-body { position: relative; }
-.scene {
-  position: absolute; left: 0; right: 0; bottom: 34px; z-index: 2;
-  display: flex; justify-content: flex-end; align-items: center; gap: 14px;
-  pointer-events: none;
-}
-.scene-name {
-  display: inline-flex; align-items: center; gap: 6px;
-  font: 700 13px/1 var(--sans); letter-spacing: .02em; color: rgba(238,240,250,.85);
-  text-shadow: 0 1px 8px rgba(0,0,0,.7);
-}
-.scene-name svg { width: 14px; height: 14px; fill: var(--gold); }
-.scene-dots { display: flex; gap: 6px; pointer-events: auto; }
-.scene-dots button {
-  width: 9px; height: 9px; padding: 0; border-radius: 50%; cursor: pointer;
-  border: 1.5px solid rgba(238,240,250,.7); background: transparent;
-  transition: background .3s, transform .3s;
-}
-.scene-dots button[aria-current="true"] { background: var(--gold); border-color: var(--gold); transform: scale(1.15); }
-.scene-dots button:hover { background: rgba(238,240,250,.5); }
-@media (max-width: 720px) { .scene { bottom: 26px; justify-content: center; } }
