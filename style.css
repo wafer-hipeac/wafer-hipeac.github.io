@@ -198,7 +198,7 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
   background: linear-gradient(90deg, var(--sandstone), var(--gold), var(--clyde));
 }
 .fmt-n { font: 900 2.6rem/1 var(--serif); color: var(--clyde); }
-.fmt h3 { margin-top: 14px; font-size: 1.3rem; }
+.fmt h3 { font-size: 1.3rem; }
 .fmt p:last-child { margin-top: 8px; color: var(--ink-2); font-size: .97rem; }
 
 /* speakers */
@@ -238,6 +238,7 @@ h2 em { font-style: italic; font-weight: 400; color: var(--sandstone); }
 .speaker .aff { margin-top: 4px; color: var(--clyde); font: 700 .88rem/1.35 var(--mono); letter-spacing: .01em; }
 .speaker .bio { color: var(--ink-2); font-size: .93rem; line-height: 1.55; }
 
+.tbd strong { color: var(--ink); font-weight: 800; }
 .tbd {
   display: flex; align-items: center; gap: 16px; margin-top: 22px;
   padding: 18px 22px; border-radius: var(--radius);
